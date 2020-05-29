@@ -24,7 +24,8 @@ void uart_tx_init ()
   TCCR0B = 1 << CS01;		// prescaler 8
   SOFT_TX_PORT |= SOFT_TX_PIN;
   SOFT_TX_DDR |= SOFT_TX_PIN;
-  OCR0A = 125;			//9600 baudrate at prescaler 8
+  //ВНИМАНИЕ! Из-за использования внутреней RC цепочки, это значение нужно подстраивать под "реали" конкретного проца
+  OCR0A = 119;			//9600 baudrate at prescaler 8
 }
 
 //bitbanged UART transmit byte
